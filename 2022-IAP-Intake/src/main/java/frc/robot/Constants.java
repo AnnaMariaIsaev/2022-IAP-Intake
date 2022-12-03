@@ -14,7 +14,7 @@ package frc.robot;
  */
 public final class Constants 
 {
-    public static final class ShooterPorts {
+    public static final class IntakePorts {
         public static final int LeftFlywheelPort = 16;
         public static final int RightFlywheelPort = 17;
         public static final int pivotPort = 14;
@@ -25,27 +25,5 @@ public final class Constants
         public static final int Zero = 0;
         public static final int One = 1;
         }
-        public static final class leftFlywheelPIDConsts {
-            public static double pidP = 0.0;
-            public static double pidI = 0.0;
-            public static double pidD = 0.0;
-            }
-            
-            public static final class rightFlywheelPIDConsts {
-            public static double pidP = 0.0;
-            public static double pidI = 0.0;
-            public static double pidD = 0.0;
-            }
-            public static final class leftFlywheelFF {
-                public static final double kS = 0.0;
-                public static final double kV = 0.0;
-                public static final double kA = 0.0;
-                }
-                
-                public static final class rightFlywheelFF {
-                public static final double kS = 0.0;
-                public static final double kV = 0.0;
-                public static final double kA = 0.0;
-                }
                                     
 }
