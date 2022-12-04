@@ -6,19 +6,25 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.Intake;
+import frc.robot.Constants;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class SpinFlywheel extends CommandBase {
   /** Creates a new SpinFlywheel. */
   private final Intake intake;
   private final Joystick joy;
-  private int speed;
+
+  private int numSpikes;
   
-  public SpinFlywheel(Intake intake, Joystick joy, int speed) {
+  public SpinFlywheel(Intake intake, Joystick joy)
+  {
     // Use addRequirements() here to declare subsystem dependencies
     this.intake = intake;
     this.joy = joy;
-    this.speed = speed;
+    numSpikes = 0;
     addRequirements(intake);
   }
 
@@ -32,7 +38,25 @@ public class SpinFlywheel extends CommandBase {
   @Override
   public void execute() 
   {
-    intake.setFlywheelConstantVelocity(RobotContainer.getJoy);
+    if(RobotContainer.getJoy().getRawButtonPressed(10))
+    {
+      intake.setFlywheelPower(-1);
+    }
+    if(RobotContainer.getJoy().getRawButtonPressed(11))
+    {
+      intake.setFlywheelPower(1);
+    }
+    if(RobotContainer.getJoy().getRawButtonPressed(12))
+    {
+      intake.setFlywheelPower(0);
+    }
+    
+    //telemetry
+    SmartDashboard.putNumber("Intake Flywheel Current", intake.getCurrent());
+
+    if(intake.getCurrent() > 3.0) numSpikes++;
+    
+    SmartDashboard.putNumber("Has Ball: ", numSpikes%2); //1 is has ball
   }
 
   // Called once the command ends or is interrupted.
