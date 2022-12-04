@@ -14,16 +14,18 @@ package frc.robot;
  */
 public final class Constants 
 {
-    public static final class IntakePorts {
-        public static final int LeftFlywheelPort = 16;
-        public static final int RightFlywheelPort = 17;
+    public static final class IntakePorts 
+    {
         public static final int pivotPort = 14;
         public static final int rollerPort = 15;
-        }
+        public static final int rightFlyhweel = 16;
+        public static final int leftFlywheel = 17;
+    }
         
-        public static final class USBOrder {
+    public static final class USBOrder 
+    {
         public static final int Zero = 0;
         public static final int One = 1;
-        }
-                                    
+    }
+                                   
 }
